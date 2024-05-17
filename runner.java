@@ -7,14 +7,15 @@ public class runner
 {
     public static void main(String[] args)
     {
+        //begins the game
         System.out.println("Would you like to bowl a frame? (1 = yes, 2 = no)");
         try (Scanner scan = new Scanner(System.in)) {
             int ans = scan.nextInt();
-            int[] game = new int[10];
-            int c = 0;
-            
 
-            while(ans == 1 && c != 10)
+
+            
+            //asks for ball info and rolls the ball, returning the result
+            while(ans == 1)
             {
                 
                 System.out.println("To bowl a frame, enter the prompts asking for info about your roll");
@@ -26,20 +27,17 @@ public class runner
                 int power = scan.nextInt();
 
                 roll a = new roll(side, curve, power);
-                game[c] += a.pinsKnocked;
+
 
                 System.out.println(a.nextRoll(a));
-                System.out.println("Game score so far: ");
-                System.out.println(game);
                 System.out.println("Would you like to bowl a frame? (1 = yes, 2 = no)");
                 ans = scan.nextInt();
-                c++;
+                
             }
+            //thanks user if they decide to stop playing
             if(ans == 2)
                 {
                     System.out.println("Thanks for playing, your final game score was: ");
-                    System.out.println(game);
-                    game = null;
                 }
         }
 

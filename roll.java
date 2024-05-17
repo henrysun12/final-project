@@ -4,11 +4,15 @@ import java.lang.Math;
 
 public class roll
 {
+    //local variables for each roll
     int pinsKnocked;
     private int curve;
     private int side;
     private int power;
+    private int[] game = new int[10];
+    int c = 0;
     
+    //default constructor for a roll
     public roll()
     {
         this.curve = 0;
@@ -16,6 +20,8 @@ public class roll
         this.power = 5;
         
     }
+
+    //paramters constructor for a roll
 
     public roll(int c, int s, int p){
 
@@ -26,8 +32,11 @@ public class roll
 
     }
 
+    //method that rolls a ball
+
     public String nextRoll(roll a)
     {
+        //different amt of pins knocked down for each scenario
 
         if(a.curve == 0 && a.side == 0 && a.power == 5)
         {
@@ -77,12 +86,16 @@ public class roll
                 a.pinsKnocked = 0;
             
         }
-
+        game[c] += a.pinsKnocked;
+        c++;
         
-        return "You knocked down " + a.pinsKnocked + " pins.";
+
+        //returns number of pins knocked
+        return "You knocked down " + a.pinsKnocked + " pins.\n" + "Total score so far: " + game;
 
     }
 
+    //prints the outcome of a roll
     public String toString(roll a)
     {
         return "Pins Knocked: " + a.pinsKnocked;
